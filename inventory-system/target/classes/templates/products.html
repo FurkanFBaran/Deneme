@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Products</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        .btn {
+            background-color: #2978b5;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .btn-create {
+            background-color: #2978b5;
+        }
+        .btn-logout {
+            float: right;
+            background-color: #2a9df4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f3f3f3;
+        }
+        .actions button {
+            margin-right: 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .btn-delete {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .btn-edit {
+            background-color: #6c5ce7;
+            color: white;
+        }
+        .filter-section {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .filter-section input[type="search"] {
+            padding: 5px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Products
+    <a href="/logout" class="btn btn-logout">Log out</a>
+</h1>
+
+<div>
+    <a href="/categories/create" class="btn btn-create">Create Category</a>
+    <a href="/products/create" class="btn btn-create">Create Product</a>
+</div>
+
+<div class="filter-section">
+    <label for="brandFilter">Filter</label>
+    <select id="brandFilter" name="brandFilter">
+        <option value="" disabled selected>Choose a brand ↓</option>
+        <!-- Marka seçenekleri buraya gelecek -->
+    </select>
+
+    <label for="searchInput">Search</label>
+    <input type="search" id="searchInput" name="searchInput" placeholder="Search" />
+</div>
+
+<!-- Ürün tablosu -->
+<div th:if="${products != null and !#lists.isEmpty(products)}">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th><th>Name</th><th>Quantity</th><th>Brand</th><th>Category</th><th>Price</th><th>Created date</th><th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.productId}"></td>
+                <td th:text="${product.productName}"></td>
+                <td th:text="${product.stockQuantity}"></td>
+                <td th:text="${product.brandName}"></td>
+                <td th:text="${product.category != null ? product.category.categoryName : '-'}"></td>
+                <td th:text="${product.price + '$'}"></td>
+                <td th:text="${#temporals.format(product.creationDate, 'dd.MM.yy')}"></td>
+                <td class="actions">
+                    <button class="btn-delete" th:onclick="'location.href=\'/products/delete/'+${product.productId}+'\';'">Delete</button>
+                    <button class="btn-edit" th:onclick="'location.href=\'/products/edit/'+${product.productId}+'\';'">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div th:if="${products == null or #lists.isEmpty(products)}" style="margin-top:20px; font-style: italic;">
+    <p>No products found. Please create a category first, then add products.</p>
+</div>
+
+</body>
+</html>

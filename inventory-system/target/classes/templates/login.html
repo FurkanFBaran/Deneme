@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Managely Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+    }
+    .login-container {
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    .form-control {
+      border-radius: 8px;
+    }
+    .btn-dark {
+      width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2 class="fw-bold mb-4">Managely</h2>
+    <h5 class="fw-semibold">Please enter your email</h5>
+    <p class="mb-4">Enter your email to log in to Managely</p>
+
+    <form th:action="@{/login}" method="post">
+      <div class="mb-3">
+        <input type="email" class="form-control" name="email" placeholder="email@domain.com" required>
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" name="password" placeholder="password" required>
+      </div>
+      <button type="submit" class="btn btn-dark">Log in</button>
+    </form>
+  </div>
+
+</body>
+</html>

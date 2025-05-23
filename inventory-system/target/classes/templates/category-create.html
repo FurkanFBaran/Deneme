@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Category</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 50px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        .btn-submit {
+            background-color: #7B84FF;
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-cancel {
+            margin-left: 20px;
+            padding: 12px 40px;
+            border: 1px solid #7B84FF;
+            background-color: white;
+            color: #7B84FF;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-cancel:hover,
+        .btn-submit:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>New Category</h1>
+        <form th:action="@{/categories/add}" th:object="${category}" method="post">
+            <label>Name</label><br>
+            <input type="text" th:field="*{categoryName}" placeholder="Enter category name" required /><br>
+
+            <button type="submit" class="btn-submit">Submit</button>
+            <a th:href="@{/products/products}" class="btn-cancel">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
