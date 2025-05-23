@@ -1,0 +1,13 @@
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/InventorySystemApplication.java
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/controller/AdminController.java
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/controller/CategoryController.java
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/controller/ProductController.java
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/entity/Admin.java
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/entity/Category.java
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/entity/Product.java
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/repository/AdminRepository.java
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/repository/CategoryRepository.java
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/repository/ProductRepository.java
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/service/AdminService.java
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/service/CategoryService.java
+/workspaces/Deneme/inventory-system/src/main/java/com/inventory_system/service/ProductService.java
